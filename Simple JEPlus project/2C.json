@@ -1,0 +1,245 @@
+{
+  "projectType" : "EPLUS",
+  "projectID" : "G",
+  "projectNotes" : "EP600 Task 2 C - Sensitivity of outputs to design parameters",
+  "weatherDir" : "./",
+  "weatherFile" : "EP-BESTEST.epw",
+  "idfdir" : "./",
+  "idftemplate" : "JEP6002C.idf",
+  "dckdir" : "./",
+  "dcktemplate" : null,
+  "outputFileNames" : "trnsysout.csv",
+  "paramFile" : null,
+  "rvifile" : null,
+  "parameters" : [ {
+    "paramType" : "PARAMETRICS",
+    "id" : "P1",
+    "name" : "Orientation",
+    "description" : "Orientation",
+    "searchString" : "@@ori@@",
+    "type" : "INTEGER",
+    "valuesString" : "[0:30:359]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P2",
+    "name" : "Heating Setpoint",
+    "description" : "Heating Setpoint",
+    "searchString" : "@@HS@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[18:0.5:22]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P3",
+    "name" : "Cooling Setpoint",
+    "description" : "Cooling Setpoint",
+    "searchString" : "@@CL@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[23:0.5:27]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P4",
+    "name" : "Window SHGC",
+    "description" : "Window solar heat gain coef",
+    "searchString" : "@@SHGC@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.3:0.1:0.8]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P5",
+    "name" : "Wall ins thickness",
+    "description" : "Wall insulation thickness",
+    "searchString" : "@@WIT@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.06:0.04 :0.30]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P6",
+    "name" : "Shading depth",
+    "description" : "Shading depth",
+    "searchString" : "@@SD@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.5 :0.4 :2]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P7",
+    "name" : "Window width",
+    "description" : "Window width",
+    "searchString" : "@@WW@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[ 0.5: 0.5: 3.5]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P8",
+    "name" : "Window1 surface",
+    "description" : "Window surface",
+    "searchString" : "@@WS1@@",
+    "type" : "INTEGER",
+    "valuesString" : "{Wall_S,Wall_E}",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P9",
+    "name" : "Window2 surface",
+    "description" : "Window2 surface",
+    "searchString" : "@@WS2@@",
+    "type" : "INTEGER",
+    "valuesString" : "{Wall_S,Wall_N}",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P10",
+    "name" : "Roof ins thick",
+    "description" : "Roof insulation thickness",
+    "searchString" : "@@RIT@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.06:0.04 :0.30]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P11",
+    "name" : "Insulation conductivity",
+    "description" : "Insulation conductivity",
+    "searchString" : "@@IC@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.025:0.005:0.04]",
+    "selectedAltValue" : 0
+  }, {
+    "paramType" : "PARAMETRICS",
+    "id" : "P12",
+    "name" : "Window U",
+    "description" : "Window U-value",
+    "searchString" : "@@WU@@",
+    "type" : "DOUBLE",
+    "valuesString" : "[0.6:0.4:3]",
+    "selectedAltValue" : 0
+  } ],
+  "rvx" : {
+    "notes" : "",
+    "rvis" : [ ],
+    "csvs" : [ {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "District Heating [kWh]",
+      "fromRow" : "Heating",
+      "tableName" : "Heating",
+      "columnHeaders" : "Heating [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "District Cooling [kWh]",
+      "fromRow" : "Cooling",
+      "tableName" : "Cooling",
+      "columnHeaders" : "Cooling [kWh]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "Comfort and Setpoint Not Met Summary",
+      "fromColumn" : "Facility [Hours]",
+      "fromRow" : "Time Not Comfortable Based on Simple ASHRAE 55-2004",
+      "tableName" : "UnmetHours",
+      "columnHeaders" : "Unmet Hours [hrs]",
+      "usedInCalc" : true
+    }, {
+      "sourceCsv" : "eplustbl.csv",
+      "fromReport" : "Annual Building Utility Performance Summary",
+      "fromFor" : "Entire Facility",
+      "fromTable" : "End Uses",
+      "fromColumn" : "Electricity [kWh]",
+      "fromRow" : "Interior Lighting",
+      "tableName" : "Lighting",
+      "columnHeaders" : "Lighting [kWh]",
+      "usedInCalc" : true
+    } ],
+    "sqls" : [ ],
+    "scripts" : [ ],
+    "userSupplied" : [ ],
+    "trns" : [ ],
+    "userVars" : [ {
+      "identifier" : "v1",
+      "caption" : "Heating [kWh]",
+      "formula" : "c0",
+      "report" : true
+    }, {
+      "identifier" : "v2",
+      "caption" : "Cooling [kWh]",
+      "formula" : "c1",
+      "report" : true
+    }, {
+      "identifier" : "v3",
+      "caption" : "UnmetHours [hours]",
+      "formula" : "c2",
+      "report" : true
+    }, {
+      "identifier" : "v4",
+      "caption" : "Lighting [kWh]",
+      "formula" : "c3",
+      "report" : false
+    } ],
+    "objectives" : [ {
+      "identifier" : "t1",
+      "caption" : "Heating [kWh]",
+      "formula" : "v1",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    }, {
+      "identifier" : "t2",
+      "caption" : "Cooling [kWh]",
+      "formula" : "v2",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    }, {
+      "identifier" : "t3",
+      "caption" : "UnmetHours [hrs]",
+      "formula" : "v3",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    }, {
+      "identifier" : "t4",
+      "caption" : "Total Energy [kWh]",
+      "formula" : "v1+v2+v4",
+      "scaling" : false,
+      "min" : 0.0,
+      "max" : 1.0,
+      "weight" : 1.0,
+      "enabled" : true
+    } ],
+    "constraints" : [ ]
+  },
+  "execSettings" : {
+    "numThreads" : 8,
+    "workDir" : "output/",
+    "subSet" : -1,
+    "sampleOpt" : "LHS",
+    "randomSeed" : 12345,
+    "numberOfJobs" : 10,
+    "jobListFile" : "select job list file ...",
+    "rerunAll" : true,
+    "keepJEPlusFiles" : true,
+    "keepEPlusFiles" : true,
+    "deleteSelectedFiles" : false,
+    "selectedFiles" : "*.dxf *.htm *.mtd *.mdd *.rdd *.shd *.out *.audit *.eio *.idd *.bnd *.ini"
+  }
+}
